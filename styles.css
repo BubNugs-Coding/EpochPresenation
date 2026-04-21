@@ -12,6 +12,7 @@
   --radius: 16px;
   --radiusSm: 12px;
   --max: 1100px;
+  --topbar-h: 84px;
 }
 
 * {
@@ -31,9 +32,19 @@ body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color: var(--text);
-  background: radial-gradient(1100px 700px at 18% 0%, rgba(196, 163, 90, 0.16), transparent 55%),
-    radial-gradient(900px 650px at 88% 25%, rgba(92, 225, 200, 0.12), transparent 55%),
-    var(--bg);
+  background: var(--bg);
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(1200px 820px at 18% -8%, rgba(196, 163, 90, 0.12), transparent 72%),
+    radial-gradient(980px 760px at 88% 22%, rgba(92, 225, 200, 0.1), transparent 75%),
+    linear-gradient(180deg, #0b1020 0%, #0d1325 100%);
 }
 
 a {
@@ -91,11 +102,13 @@ code,
 }
 
 .topbar {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 50;
+  left: 0;
+  right: 0;
+  z-index: 200;
   backdrop-filter: blur(14px);
-  background: rgba(11, 16, 32, 0.72);
+  background: rgba(11, 16, 32, 0.85);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -198,11 +211,12 @@ code,
 }
 
 .main {
+  padding-top: var(--topbar-h);
   padding-bottom: 70px;
 }
 
 .hero {
-  padding: 34px 0 14px;
+  padding: 28px 0 14px;
 }
 
 .heroGrid {
@@ -298,7 +312,7 @@ code,
   min-height: 280px;
   border-radius: var(--radius);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: radial-gradient(ellipse at 50% 45%, rgba(196, 163, 90, 0.12), transparent 55%),
+  background: radial-gradient(ellipse at 50% 45%, rgba(196, 163, 90, 0.08), transparent 62%),
     rgba(0, 0, 0, 0.22);
   overflow: hidden;
   display: grid;
@@ -332,7 +346,7 @@ code,
   width: 120px;
   height: 120px;
   margin: -60px 0 0 -60px;
-  animation: spin 28s linear infinite;
+  animation: spin 52s linear infinite;
 }
 .orbitRing2 {
   width: 190px;
@@ -340,7 +354,7 @@ code,
   margin: -95px 0 0 -95px;
   border-style: dashed;
   opacity: 0.55;
-  animation: spinRev 42s linear infinite;
+  animation: spinRev 76s linear infinite;
 }
 
 .orbitDot {
@@ -443,7 +457,7 @@ code,
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.05);
   padding: 16px;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
 }
 
 .card p {
@@ -569,6 +583,9 @@ code,
 }
 
 @media (max-width: 980px) {
+  :root {
+    --topbar-h: 146px;
+  }
   .topbarInner {
     grid-template-columns: 1fr;
     gap: 10px;
