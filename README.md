@@ -22,18 +22,16 @@ Optional: add screenshots under `assets/` and replace the abstract hero in `inde
 
 ## Publish to GitHub Pages
 
-1. Create a GitHub repository for this site (for example `EpochPresentation`) or use an existing Pages repo.
-2. Copy **the contents of this folder** (not the parent `Code` directory) to the repository root.
-3. In the repo on GitHub: **Settings → Pages**
+This site’s source repo is **[BubNugs-Coding/EpochPresenation](https://github.com/BubNugs-Coding/EpochPresenation)** (note the spelling of the repo name).
+
+1. Ensure the latest `main` is pushed (this directory is that repo’s working tree).
+2. On GitHub: **Settings → Pages**
    - **Build and deployment**: Deploy from a branch  
-   - **Branch**: usually `main`, folder **`/ (root)`**
-4. Commit and push.
+   - **Branch**: `main`, folder **`/ (root)`**
 
-After deployment, the site URL is typically:
+After GitHub finishes building, the site URL is:
 
-`https://bubnugs-coding.github.io/<your-repo-name>/`
-
-Replace `<your-repo-name>` with the actual repository name.
+[https://bubnugs-coding.github.io/EpochPresenation/](https://bubnugs-coding.github.io/EpochPresenation/)
 
 ## Run locally
 
