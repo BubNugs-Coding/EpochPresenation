@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Epoch — Civilization simulation</title>
+    <meta
+      name="description"
+      content="Epoch is a browser-based civilization simulation: 100 agents, settlements, factions, conflict, migration, and a chronicle recap—built with React, TypeScript, and Vite."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skipLink" href="#main">Skip to content</a>
+
+    <header class="topbar" role="banner">
+      <div class="container topbarInner">
+        <div class="brand">
+          <div class="brandMark" aria-hidden="true">E</div>
+          <div class="brandText">
+            <div class="brandTitle">Epoch</div>
+            <div class="brandSub">Civilization simulation · GitHub Pages</div>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Primary">
+          <a class="navLink" href="#overview">Overview</a>
+          <a class="navLink" href="#experience">Experience</a>
+          <a class="navLink" href="#systems">Systems</a>
+          <a class="navLink" href="#tech">Tech</a>
+          <a class="navLink" href="#roadmap">Roadmap</a>
+        </nav>
+
+        <div class="topbarActions">
+          <button class="iconBtn" type="button" id="copyLinkBtn" title="Copy page link">Copy link</button>
+          <button class="iconBtn" type="button" id="expandAllBtn" title="Expand all sections">Expand all</button>
+        </div>
+      </div>
+      <div class="progress" aria-hidden="true">
+        <div class="progressBar" id="progressBar"></div>
+      </div>
+    </header>
+
+    <main id="main" class="main" role="main">
+      <section class="hero" aria-label="Intro">
+        <div class="container heroGrid">
+          <div class="heroText">
+            <p class="eyebrow">React · TypeScript · deterministic simulation</p>
+            <h1 class="h1">Watch a tiny world write its own history</h1>
+            <p class="lead">
+              <span class="mono">Epoch</span> runs a hidden-grid world where one hundred seeded agents gather
+              resources, found settlements, form factions, clash, migrate, and eventually end in a structured
+              recap you can read like a chronicle.
+            </p>
+
+            <div class="statRow" aria-label="At a glance">
+              <div class="stat">
+                <div class="statN">100</div>
+                <div class="statL">named agents</div>
+              </div>
+              <div class="stat">
+                <div class="statN">1×–8×</div>
+                <div class="statL">sim speed</div>
+              </div>
+              <div class="stat">
+                <div class="statN">∞</div>
+                <div class="statL">seeds to explore</div>
+              </div>
+            </div>
+
+            <div class="ctaRow">
+              <a class="btn primary" href="https://github.com/BubNugs-Coding/Epoch" target="_blank" rel="noreferrer">
+                View repository
+              </a>
+              <a class="btn" href="#experience">How to run it</a>
+            </div>
+
+            <p class="metaNote">
+              Tip: Use <span class="kbd">Expand all</span> for a quick read-through of every detail block.
+            </p>
+          </div>
+
+          <div class="heroVisual" aria-hidden="true">
+            <div class="orbit">
+              <div class="orbitCore"></div>
+              <div class="orbitRing orbitRing1"></div>
+              <div class="orbitRing orbitRing2"></div>
+              <div class="orbitDot d1"></div>
+              <div class="orbitDot d2"></div>
+              <div class="orbitDot d3"></div>
+            </div>
+            <p class="heroVisualCaption">Abstract world view — add a screenshot in <span class="mono">assets/</span> anytime.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="container section anchorTarget" id="overview" aria-label="Overview">
+        <div class="sectionHead">
+          <h2 class="h2">What Epoch is</h2>
+        </div>
+
+        <div class="grid2">
+          <article class="card">
+            <h3 class="h3">In one sentence</h3>
+            <p>
+              Epoch is an interactive <strong>civilization-flavored simulation</strong> in the browser: agents
+              pursue goals, societies emerge from local rules, and major beats are captured in an event feed and
+              end-of-run chronicle.
+            </p>
+            <ul class="bullet">
+              <li><strong>Living map</strong>: terrain and resources drive movement and scarcity.</li>
+              <li><strong>Emergent politics</strong>: settlements and factions form without a scripted story.</li>
+              <li><strong>Readable outcomes</strong>: stats, notable figures, and trends when a run concludes.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3 class="h3">Why it exists</h3>
+            <p>
+              The project explores how far you can push <strong>deterministic, inspectable simulation</strong> in
+              a web app: clear tick order, separated engine and renderer, and room to grow through optional modules.
+            </p>
+            <details class="accordion">
+              <summary>Design pillars</summary>
+              <div class="accordionBody">
+                <ul class="bullet">
+                  <li><strong>Determinism</strong>: same seed, same trajectory — great for tuning and demos.</li>
+                  <li><strong>Observability</strong>: click entities, filter events, follow arcs in the side panel.</li>
+                  <li><strong>Modularity</strong>: hooks at init, tick, day boundaries, decisions, and end checks.</li>
+                </ul>
+              </div>
+            </details>
+          </article>
+        </div>
+      </section>
+
+      <section class="container section anchorTarget" id="experience" aria-label="Experience">
+        <div class="sectionHead">
+          <h2 class="h2">What you actually do</h2>
+        </div>
+
+        <div class="grid2">
+          <article class="card">
+            <h3 class="h3">Player role</h3>
+            <p>You are less “god” and more <strong>director and archivist</strong>: steer time, pick seeds, toggle optional modules, and inspect whatever catches your eye.</p>
+            <ul class="bullet">
+              <li><strong>Time controls</strong>: pause, resume, and run at 1×–8× speed.</li>
+              <li><strong>Seeds</strong>: restart the same world or type a new seed to compare outcomes.</li>
+              <li><strong>Demo presets</strong>: balanced, war-forward, or settlement-forward starting points.</li>
+              <li><strong>Inspection</strong>: agents, settlements, factions, and world tabs with a filtered event feed.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3 class="h3">Run it locally</h3>
+            <ol class="steps">
+              <li>Clone <a href="https://github.com/BubNugs-Coding/Epoch" target="_blank" rel="noreferrer">the Epoch repo</a>.</li>
+              <li><code>npm install</code></li>
+              <li><code>npm run dev</code> and open the local URL Vite prints.</li>
+            </ol>
+            <details class="accordion">
+              <summary>Build for static hosting</summary>
+              <div class="accordionBody">
+                <ol class="steps">
+                  <li><code>npm run build</code></li>
+                  <li>Serve the <code>dist</code> folder from any static host (optional GitHub Pages project site).</li>
+                </ol>
+                <p class="muted">Simulation logic stays in TypeScript; the canvas is a view layer on top.</p>
+              </div>
+            </details>
+          </article>
+        </div>
+      </section>
+
+      <section class="container section anchorTarget" id="systems" aria-label="Systems">
+        <div class="sectionHead">
+          <h2 class="h2">Systems at a glance</h2>
+          <p class="sub">High-level map of what is already implemented — not an exhaustive spec.</p>
+        </div>
+
+        <div class="grid2">
+          <article class="card">
+            <h3 class="h3">World and agents</h3>
+            <ul class="bullet">
+              <li><strong>World generation</strong>: hidden grid, clustered terrain and resources.</li>
+              <li><strong>Agents</strong>: names, traits, avatars; needs loop (hunger, energy, health).</li>
+              <li><strong>Decisions</strong>: utility-based scoring for what to do next.</li>
+              <li><strong>Actions</strong>: movement, gathering, eating, resting.</li>
+            </ul>
+            <details class="accordion">
+              <summary>Society and conflict</summary>
+              <div class="accordionBody">
+                <ul class="bullet">
+                  <li><strong>Settlements</strong>: founding, joining, deposits, lifecycle.</li>
+                  <li><strong>Factions</strong>: formation and dominance tracking.</li>
+                  <li><strong>Conflict</strong>: skirmishes with battle events in the log.</li>
+                  <li><strong>Migration</strong>: pressure-driven relocation to richer ground.</li>
+                </ul>
+              </div>
+            </details>
+          </article>
+
+          <article class="card">
+            <h3 class="h3">Presentation layer</h3>
+            <ul class="bullet">
+              <li><strong>Canvas rendering</strong>: world view with group colors for settlements and factions.</li>
+              <li><strong>Hover labels</strong>: quick context on focused entities.</li>
+              <li><strong>End screen</strong>: recap, notable figures, and simple trend charts.</li>
+              <li><strong>Chronicle</strong>: sectioned narrative generated from structured events.</li>
+            </ul>
+            <details class="accordion">
+              <summary>Example modules (toggleable)</summary>
+              <div class="accordionBody">
+                <ul class="bullet">
+                  <li><strong>Myths &amp; Magic</strong>: flavor “omen” style events (placeholder gameplay).</li>
+                  <li><strong>Intergalactic Invaders</strong>: anomaly and meteor-style events (placeholder gameplay).</li>
+                </ul>
+                <p class="muted">Modules register hooks so future work can add real effects without rewriting the core loop.</p>
+              </div>
+            </details>
+          </article>
+        </div>
+      </section>
+
+      <section class="container section anchorTarget" id="tech" aria-label="Tech">
+        <div class="sectionHead">
+          <h2 class="h2">Tech stack and architecture</h2>
+        </div>
+
+        <div class="grid2">
+          <article class="card">
+            <h3 class="h3">Stack</h3>
+            <div class="keyValue">
+              <div class="k">UI</div>
+              <div class="v">React + TypeScript</div>
+              <div class="k">Build</div>
+              <div class="v">Vite</div>
+              <div class="k">Sim loop</div>
+              <div class="v">Fixed-step ticks, RAF-driven</div>
+              <div class="k">Rendering</div>
+              <div class="v">Canvas (decoupled from engine)</div>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3 class="h3">Engine rules</h3>
+            <p>
+              The simulation advances through an ordered set of systems each tick. Rendering reads state but does
+              not drive gameplay rules — that boundary is intentional for testing, porting, and future features
+              like replay.
+            </p>
+            <details class="accordion">
+              <summary>Tooling you might use</summary>
+              <div class="accordionBody">
+                <ul class="bullet">
+                  <li><strong>Seed sweep script</strong>: <code>scripts/seedSweep.ts</code> for batch comparisons.</li>
+                  <li><strong>Demo mode</strong>: presenter-oriented overlay and preset wiring in the app.</li>
+                </ul>
+              </div>
+            </details>
+          </article>
+        </div>
+      </section>
+
+      <section class="container section anchorTarget" id="roadmap" aria-label="Roadmap">
+        <div class="sectionHead">
+          <h2 class="h2">Where it is headed</h2>
+        </div>
+
+        <div class="grid2">
+          <article class="card">
+            <h3 class="h3">Near-term ideas</h3>
+            <ul class="bullet">
+              <li>Tuning pass on scarcity, combat frequency, and late-game variety.</li>
+              <li>Module examples with small, visible gameplay effects beyond flavor text.</li>
+              <li>Chronicle prose variants tied to more event shapes.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3 class="h3">Intentionally deferred</h3>
+            <p class="muted">
+              Deep diplomacy, scripted campaigns, and full timeline replay are out of scope for now — the current
+              focus is a believable emergent loop you can study run to run.
+            </p>
+            <p>
+              Source of truth for day-to-day progress lives in the main repo’s
+              <span class="mono">PROJECT_STATUS.md</span> (kept in sync with milestones).
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="container footerInner">
+        <div class="footerLeft">
+          <div class="footerTitle">Epoch</div>
+          <div class="footerSub">Project page · Avery Bird</div>
+        </div>
+        <div class="footerRight">
+          <a class="footerLink" href="https://github.com/BubNugs-Coding/Epoch" target="_blank" rel="noreferrer">Epoch repo</a>
+          <span class="footerSep" aria-hidden="true">·</span>
+          <a class="footerLink" href="#main">Back to top</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
