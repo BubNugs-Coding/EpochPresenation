@@ -425,6 +425,10 @@ code,
   padding: 28px 0;
 }
 
+.anchorTarget {
+  scroll-margin-top: calc(var(--topbar-h) + 12px);
+}
+
 .sectionHead {
   display: flex;
   gap: 14px;
